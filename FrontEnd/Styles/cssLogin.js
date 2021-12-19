@@ -1,0 +1,81 @@
+import { StyleSheet, Dimensions } from "react-native";
+
+const {width, height} = Dimensions.get('window');
+
+const styleLogin = StyleSheet.create({
+    container:{
+        flex:1,
+        marginTop:22
+    },
+    viewLogo:{
+        width:'97%',
+        height:'15%',
+        padding:'4%'
+    },
+    viewInf:{
+        height:'70%',
+        width:'100%',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    viewVersion:{
+        height:'15%',
+        width:'100%',
+        alignItems:'flex-end',
+        justifyContent:'center',
+        paddingEnd:3
+    },
+    scroll:{
+        width:width,
+        height:height,
+        alignItems:'center',
+        backgroundColor:'#000080'
+    },
+    img:{
+        height:'100%',
+        width:'100%',
+        borderRadius:10
+    },
+    userPass_text:{
+        fontSize:20,
+        fontWeight:'500',
+        color:'#FFD700'
+    },
+    inputs:{
+        height:35,
+        width:'85%',
+        borderRadius:5,
+        padding:2,
+        backgroundColor:'#FFF',
+        marginBottom:'1%',
+        marginTop:'2%',
+        fontStyle:'italic'
+    },
+    buttons:{
+        width:'80%',
+        height:40,
+        borderRadius:20,
+        backgroundColor:'#FFD700',
+        justifyContent:'center',
+        alignItems:'center',
+        marginBottom:'5%',
+        borderColor:'#000',
+        borderWidth:1
+    },
+    textButton:{
+        fontSize:20,
+        fontWeight:'600'
+    },
+    recPass:{
+        fontSize:15,
+        color:'#FFF'
+    },
+    textVersion:{
+        color:'#FFF',
+        fontStyle:'italic',
+        fontWeight:'700',
+        fontSize:15
+    }
+})
+
+export default styleLogin;

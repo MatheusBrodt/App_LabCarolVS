@@ -1,0 +1,76 @@
+{
+    "services":[
+        {
+            "id":"001",
+            "store": "2064",
+            "seq": "4758",
+            "type": "Visão Simples",
+            "situation": "Aguardando",
+            "prev": "12/12/2021",
+            "box": "",
+            "status": "",
+            "icon": "clockcircleo",
+            "color": "#FFD700"
+        },  
+        {
+            "id":"002",
+            "store": "1432",
+            "seq": "14358",
+            "type": "Visão Simples",
+            "situation": "Montagem",
+            "prev": "12/12/2021",
+            "box": "",
+            "status": "",
+            "icon": "checkcircleo",
+            "color": "#32CD32"
+        },  
+        {
+            "id":"003",
+            "store": "1574",
+            "seq": "6897",
+            "type": "Visão Simples",
+            "situation": "Lentes Separadas",
+            "prev": "24/12/2021",
+            "box": "78",
+            "status": "",
+            "icon": "pausecircleo",
+            "color": "#FF8C00"
+        },
+        {
+            "id":"004",
+            "store": "2064",
+            "seq": "4758",
+            "type": "Visão Simples",
+            "situation": "Retrabalho",
+            "prev": "12/12/2021",
+            "box": "",
+            "status": "",
+            "icon": "warning",
+            "color": "red"
+        },  
+        {
+            "id":"005",
+            "store": "1432",
+            "seq": "14358",
+            "type": "Visão Simples",
+            "situation": "Finalizado",
+            "prev": "12/12/2021",
+            "box": "",
+            "status": "",
+            "icon": "checkcircle",
+            "color": "#228B22"
+        },  
+        {
+            "id":"006",
+            "store": "1574",
+            "seq": "6897",
+            "type": "Visão Simples",
+            "situation": "Lentes Separadas",
+            "prev": "24/12/2021",
+            "box": "78",
+            "status": "",
+            "icon": "pausecircleo",
+            "color": "#FF8C00"
+        }
+    ]
+}
