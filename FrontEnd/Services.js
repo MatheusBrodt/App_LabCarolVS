@@ -1,21 +1,35 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { View, 
         TouchableOpacity, 
         Text, TextInput, 
-        StyleSheet, 
-        Dimensions, 
         FlatList, 
         ActivityIndicator} from 'react-native';
 import { Entypo, AntDesign } from "@expo/vector-icons";
-import * as data from '../services.json'
 
 import styleServices from "./Styles/cssServices";
-
 export default function Serv_View(props) {
 
     const [seq, setSeq] = useState(null);
     const [verif, setVerif] = useState(true);
     const [load, setLoad] = useState(true);
+    const [services, setServices] = useState(null);
+
+    function getServ() {
+        setLoad(false);
+        
+        fetch('http://127.0.0.1:19001/pesq',{
+            'methods':'GET',
+            headers : {
+            'Content-Type':'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => setServices(response))
+        .catch(error => console.log(error))
+
+        console.log(services);
+        
+    }
 
     function List_View() {
         if (verif === true) {
@@ -23,8 +37,8 @@ export default function Serv_View(props) {
                 <FlatList
                 contentContainerStyle={styleServices.F_List}
                 showsVerticalScrollIndicator={false}
-                data={data.services}
-                keyExtractor={item=>item.id}
+                data={services}
+                keyExtractor={item=>item}
                 renderItem={({item}) => 
                     <View style={styleServices.card}>
                         <View style={styleServices.inf}>
@@ -48,7 +62,7 @@ export default function Serv_View(props) {
                             </Text>
                         </View>
                         <View style={styleServices.view_Icon}>
-                            <AntDesign name={item.icon} size={100} color={item.color}/>
+                            <AntDesign name={"clockcircleo"} size={100} color={item.color}/>
                         </View>
                     </View>
                     }
@@ -84,7 +98,7 @@ export default function Serv_View(props) {
                 <TextInput style={styleServices.inputs} placeholder='Ex.: 1234'
                            onChangeText={setSeq}/>
                 <TouchableOpacity style={styleServices.button}
-                           onPress={() => Search}>
+                           onPress={() => getServ()}>
                     <Text style={styleServices.text_Button}>Buscar</Text>
                 </TouchableOpacity>
             </View>
