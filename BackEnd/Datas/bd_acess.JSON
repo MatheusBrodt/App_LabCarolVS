@@ -1,0 +1,6 @@
+{
+  "host": "mysqlserver.cz1ji5phheqm.us-east-2.rds.amazonaws.com",
+  "user": "Lab_carolSL",
+  "password": "mb028001",
+  "database": "lab_carol"
+}

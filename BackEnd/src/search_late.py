@@ -1,7 +1,9 @@
 import mysql.connector
+from datetime import date
 
 
-def search(store, seq):
+def search_late(store):
+    today = date.today()
     # connection database
     cnx = mysql.connector.connect(host='mysqlserver.cz1ji5phheqm.us-east-2.rds.amazonaws.com',
                                   user='Lab_carolSL', password='mb028001', database="lab_carol")
@@ -9,9 +11,11 @@ def search(store, seq):
 
     # store verification
     if str(store).isdigit():
-        cursor.execute(f"SELECT * FROM services WHERE store = '{store}' AND LOCATE ('{seq}', sequencia)")
+        cursor.execute(f"SELECT * FROM services WHERE store = '{store}' AND previsao < '{today}' "
+                       f"AND situation = 'Aguardando' OR 'Retrabalho' ORDER BY previsao")
     else:
-        cursor.execute(f"SELECT * FROM services WHERE LOCATE ('{seq}', sequencia)")
+        cursor.execute(f"SELECT * FROM services WHERE previsao < '{today}' AND situation = 'Aguardando' OR 'Retrabalho'"
+                       f"ORDER BY previsao")
 
     # result list
     result = cursor.fetchall()

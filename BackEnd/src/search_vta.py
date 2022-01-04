@@ -1,7 +1,7 @@
 import mysql.connector
 
 
-def search(store, seq):
+def search_vta(store):
     # connection database
     cnx = mysql.connector.connect(host='mysqlserver.cz1ji5phheqm.us-east-2.rds.amazonaws.com',
                                   user='Lab_carolSL', password='mb028001', database="lab_carol")
@@ -9,9 +9,9 @@ def search(store, seq):
 
     # store verification
     if str(store).isdigit():
-        cursor.execute(f"SELECT * FROM services WHERE store = '{store}' AND LOCATE ('{seq}', sequencia)")
+        cursor.execute(f"SELECT * FROM services WHERE store = '{store}' AND situation = 'Aguardando Armação'")
     else:
-        cursor.execute(f"SELECT * FROM services WHERE LOCATE ('{seq}', sequencia)")
+        cursor.execute(f"SELECT * FROM services WHERE situation = 'Aguardando Armação'")
 
     # result list
     result = cursor.fetchall()
